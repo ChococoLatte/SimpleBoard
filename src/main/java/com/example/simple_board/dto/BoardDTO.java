@@ -1,12 +1,11 @@
 package com.example.simple_board.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class BoardDTO {
     private long id;
     private String boardWriter;

@@ -1,7 +1,10 @@
 package com.example.simple_board.mapper;
 
+import com.example.simple_board.dto.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface BoardMapper {
@@ -12,4 +15,6 @@ public interface BoardMapper {
             @Param("boardPass") String boardPass,
             @Param("boardContents") String boardContents
     );
+
+    List<BoardDTO> getAll();
 }

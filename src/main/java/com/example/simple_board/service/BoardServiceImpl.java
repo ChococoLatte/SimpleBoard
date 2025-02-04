@@ -5,6 +5,8 @@ import com.example.simple_board.repository.BoardRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
@@ -14,5 +16,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void save(BoardDTO boardDTO){
         boardRepository.save(boardDTO);
+    }
+
+    @Override
+    public List<BoardDTO> getAll(){
+        return boardRepository.getAll();
     }
 }

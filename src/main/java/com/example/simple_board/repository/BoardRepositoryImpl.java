@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class BoardRepositoryImpl implements BoardRepository {
@@ -20,5 +22,10 @@ public class BoardRepositoryImpl implements BoardRepository {
                 boardDTO.getBoardPass(),
                 boardDTO.getBoardContents()
         );
+    }
+
+    @Override
+    public List<BoardDTO> getAll(){
+        return boardMapper.getAll();
     }
 }

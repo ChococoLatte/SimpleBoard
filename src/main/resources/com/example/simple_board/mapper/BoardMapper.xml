@@ -8,4 +8,8 @@
         values(#{boardTitle}, #{boardWriter}, #{boardPass}, #{boardContents})
     </insert>
 
+    <select id ='getAll'>
+        select boardTitle, boardWriter, boardContents, createdAt from board_table
+    </select>
+
 </mapper>

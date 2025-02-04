@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board List</title>
+</head>
+<body>
+<h1>Board List</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Writer</th>
+    <th>Contents</th>
+    <th>Created At</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- boards 리스트를 반복하여 각 항목을 표시 -->
+  <tr th:each="board : ${boardDTOList}">
+    <td th:text="${board.boardTitle}">Title</td>
+    <td th:text="${board.boardWriter}">Writer</td>
+    <td th:text="${board.boardContents}">Contents</td>
+<!--    <td th:text="${#dates.format(board.createdAt, 'yyyy-MM-dd HH:mm:ss')}">CreatedAt</td>-->
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

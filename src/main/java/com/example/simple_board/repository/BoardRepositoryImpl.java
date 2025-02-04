@@ -3,7 +3,6 @@ package com.example.simple_board.repository;
 import com.example.simple_board.dto.BoardDTO;
 import com.example.simple_board.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,5 +26,10 @@ public class BoardRepositoryImpl implements BoardRepository {
     @Override
     public List<BoardDTO> getAll(){
         return boardMapper.getAll();
+    }
+
+    @Override
+    public BoardDTO getById(int id){
+        return boardMapper.getById(id);
     }
 }

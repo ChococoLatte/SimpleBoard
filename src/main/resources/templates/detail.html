@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Board List</title>
+  <title>Board Detail</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,8 +20,7 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 80%;
-      max-width: 800px;
+      width: 500px;
     }
     h1 {
       text-align: center;
@@ -33,17 +32,16 @@
       margin-top: 10px;
     }
     th, td {
-      padding: 12px;
+      padding: 10px;
       border: 1px solid #ddd;
-      text-align: center;
     }
     th {
       background-color: #007bff;
       color: white;
+      text-align: left;
     }
-    tr:hover {
-      background-color: #f1f1f1;
-      cursor: pointer;
+    td {
+      background-color: #f9f9f9;
     }
     .btn-container {
       margin-top: 20px;
@@ -63,38 +61,33 @@
       background-color: #0056b3;
     }
   </style>
-  <script>
-    function goToDetail(id) {
-      window.location.href = '/list/' + id; // ID를 포함한 상세 페이지 이동
-    }
-  </script>
 </head>
 <body>
 
 <div class="container">
-  <h1>📜 게시판 목록</h1>
+  <h1>📄 게시글 상세</h1>
 
   <table>
-    <thead>
     <tr>
       <th>제목</th>
+      <td th:text="${boardDTO.boardTitle}">Title</td>
+    </tr>
+    <tr>
       <th>작성자</th>
+      <td th:text="${boardDTO.boardWriter}">Writer</td>
+    </tr>
+    <tr>
       <th>내용</th>
+      <td th:text="${boardDTO.boardContents}">Contents</td>
+    </tr>
+    <tr>
       <th>작성일</th>
+      <td th:text="${boardDTO.createdAt}">CreatedAt</td>
     </tr>
-    </thead>
-    <tbody>
-    <tr th:each="board : ${boardDTOList}" th:onclick="goToDetail([[${board.id}]])">
-      <td th:text="${board.boardTitle}">Title</td>
-      <td th:text="${board.boardWriter}">Writer</td>
-      <td th:text="${board.boardContents}">Contents</td>
-      <td th:text="${board.createdAt}">CreatedAt</td>
-    </tr>
-    </tbody>
   </table>
 
   <div class="btn-container">
-    <a href="/save" class="btn">✏ 글 작성</a>
+    <a href="/list" class="btn">⬅ 목록으로</a>
   </div>
 </div>
 

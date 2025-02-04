@@ -7,4 +7,5 @@ import java.util.List;
 public interface BoardService {
     void save(BoardDTO boardDTO);
     List<BoardDTO> getAll();
+    BoardDTO getById(int id);
 }

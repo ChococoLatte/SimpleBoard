@@ -17,4 +17,6 @@ public interface BoardMapper {
     );
 
     List<BoardDTO> getAll();
+
+    BoardDTO getById(int id);
 }

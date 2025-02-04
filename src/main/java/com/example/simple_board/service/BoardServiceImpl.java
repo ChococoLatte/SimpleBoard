@@ -22,4 +22,9 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardDTO> getAll(){
         return boardRepository.getAll();
     }
+
+    @Override
+    public BoardDTO getById(int id){
+        return boardRepository.getById(id);
+    }
 }

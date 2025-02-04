@@ -9,7 +9,14 @@
     </insert>
 
     <select id ='getAll'>
-        select boardTitle, boardWriter, boardContents, createdAt from board_table
+        select id, boardTitle, boardWriter, boardContents, createdAt
+        from board_table
+    </select>
+
+    <select id='getById'>
+        select boardTitle, boardWriter, boardContents, createdAt
+        from board_table
+        where id=#{id}
     </select>
 
 </mapper>

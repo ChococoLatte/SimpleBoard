@@ -2,12 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Spring Boot</title>
     <link rel="stylesheet" href="/css/home.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            margin-top: 50px;
+            font-size: 2em;
+            color: #333;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h2>Hello Spring Boot</h2>
-<a href="/save">글작성</a>
-<a href="/list">글목록</a>
+
+<h2>🚀 Welcome to Simple Board!</h2>
+
+<div class="container">
+    <a href="/save" class="btn">✍ 글 작성</a>
+    <a href="/list" class="btn">📜 글 목록</a>
+</div>
+
 </body>
 </html>

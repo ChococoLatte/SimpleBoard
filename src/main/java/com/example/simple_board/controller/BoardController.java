@@ -5,9 +5,7 @@ import com.example.simple_board.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +13,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardServiceImpl boardService;
+
+   @GetMapping("/list/{id}")
+   public String detail(@PathVariable int id, Model model){
+       BoardDTO boardDTO = boardService.getById(id);
+       model.addAttribute("boardDTO", boardDTO);
+       return "detail";
+   }
 
     @GetMapping("/list")
     public String getAll(Model model){

@@ -61,6 +61,35 @@
       background-color: #0056b3;
     }
   </style>
+  <script>
+    function deletePost(id, event) {
+      event.preventDefault(); // 기본 동작 방지 (a 태그 클릭 시 페이지 이동 방지)
+
+      console.log("삭제 요청 ID:", id);
+      console.log(`DELETE 요청 보낼 URL: http://localhost:8080/delete/${id}`);
+
+      if (confirm('정말 삭제하시겠습니까?')) {
+          fetch(`http://localhost:8080/delete/${id}`, {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+          })
+          .then(response => {
+              console.log("서버 응답 상태 코드:", response.status);
+              if (response.ok) {
+                  alert('삭제 완료!');
+                  window.location.href = '/list'; // 삭제 후 목록 이동
+              } else {
+                  alert(`삭제 실패! (오류 코드: ${response.status})`);
+              }
+          })
+          .catch(error => {
+              console.error('삭제 요청 실패:', error);
+          });
+      }
+  }
+  </script>
 </head>
 <body>
 
@@ -88,8 +117,10 @@
 
   <div class="btn-container">
     <a href="/list" class="btn">⬅ 목록으로</a>
-    <!-- 수정 버튼 추가 -->
     <a th:href="@{/update/{id}(id=${id})}" class="btn">✏️ 수정</a>
+    <a href="#" class="btn"
+       th:attr="onClick='deletePost(' + ${id} + ', event)'"
+       type="button">🗑 삭제</a>
   </div>
 </div>
 

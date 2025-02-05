@@ -25,4 +25,9 @@
         where id=#{id}
     </update>
 
+    <delete id="delete">
+        delete from board_table
+        where id = #{id}
+    </delete>
+
 </mapper>

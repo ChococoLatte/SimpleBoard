@@ -9,4 +9,5 @@ public interface BoardService {
     List<BoardDTO> getAll();
     BoardDTO getById(int id);
     void updateById(int id, BoardDTO boardDTO);
+    void delete(int id);
 }

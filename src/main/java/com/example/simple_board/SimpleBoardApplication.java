@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SimpleBoardApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SimpleBoardApplication.class, args);
 	}
 

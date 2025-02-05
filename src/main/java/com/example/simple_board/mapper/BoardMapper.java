@@ -25,4 +25,6 @@ public interface BoardMapper {
                     @Param("boardWriter") String boardWriter,
                     @Param("boardContents") String boardContents
         );
+
+    void delete(int id);
 }

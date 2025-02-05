@@ -14,6 +14,11 @@ public class BoardServiceImpl implements BoardService {
     private final BoardRepositoryImpl BoardRepositoryImpl;
 
     @Override
+    public void delete(int id){
+        BoardRepositoryImpl.delete(id);
+    }
+
+    @Override
     public void save(BoardDTO boardDTO){
         BoardRepositoryImpl.save(boardDTO);
     }

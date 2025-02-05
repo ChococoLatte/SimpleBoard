@@ -37,4 +37,9 @@ public class BoardRepositoryImpl implements BoardRepository {
     public void updateById(int id, BoardDTO boardDTO){
         boardMapper.updateById(id,boardDTO.getBoardTitle(), boardDTO.getBoardWriter(), boardDTO.getBoardContents());
     }
+
+    @Override
+    public void delete(int id){
+        boardMapper.delete(id);
+    }
 }

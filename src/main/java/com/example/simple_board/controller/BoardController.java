@@ -14,7 +14,13 @@ import java.util.List;
 public class BoardController {
     private final BoardServiceImpl boardServiceImpl;
 
-    @GetMapping("/update/{id}")
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable int id){
+        boardServiceImpl.delete(id);
+        return "redirect:/list";
+    }
+
+    @DeleteMapping("/update/{id}")
     public String update(@PathVariable int id, @ModelAttribute BoardDTO boardDTO, Model model){
         model.addAttribute("id", id);
         model.addAttribute("boardUpdate", boardDTO);

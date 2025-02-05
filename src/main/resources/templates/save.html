@@ -13,6 +13,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      flex-direction: column;
     }
     .form-container {
       background: white;
@@ -53,9 +54,21 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s;
+      text-align: center;
     }
     .btn:hover {
       background-color: #0056b3;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
     }
   </style>
 </head>
@@ -78,6 +91,11 @@
 
     <button type="submit" class="btn">작성</button>
   </form>
+
+  <!-- 목록으로 돌아가는 버튼 추가 -->
+  <div class="btn-container">
+    <a href="/list" class="btn btn-secondary">⬅ 목록으로</a>
+  </div>
 </div>
 
 </body>

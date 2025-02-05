@@ -32,4 +32,9 @@ public class BoardRepositoryImpl implements BoardRepository {
     public BoardDTO getById(int id){
         return boardMapper.getById(id);
     }
+
+    @Override
+    public void updateById(int id, BoardDTO boardDTO){
+        boardMapper.updateById(id,boardDTO.getBoardTitle(), boardDTO.getBoardWriter(), boardDTO.getBoardContents());
+    }
 }

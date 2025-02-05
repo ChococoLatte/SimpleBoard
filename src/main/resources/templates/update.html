@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 수정</title>
+  <style>
+    /* 전체 페이지 스타일 */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 중앙 정렬된 컨테이너 */
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 450px;
+      max-width: 90%;
+    }
+
+    /* 제목 스타일 */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    /* 입력 필드 스타일 */
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 96%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    /* 버튼 스타일 */
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      background-color: #007bff;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      margin-left: 10px;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>📄 게시글 수정</h1>
+
+  <!-- 게시글 수정 폼 -->
+  <form th:action="@{/update/{id}(id=${id})}" method="post">
+    <input type="hidden" name="_method" value="PUT">  <!-- PUT 요청으로 변환 -->
+
+    <label for="boardTitle">제목</label>
+    <input type="text" id="boardTitle" name="boardTitle" required th:value="${boardUpdate.boardTitle}">
+
+    <label for="boardWriter">작성자</label>
+    <input type="text" id="boardWriter" name="boardWriter" required th:value="${boardUpdate.boardWriter}">
+
+    <label for="boardContents">내용</label>
+    <textarea id="boardContents" name="boardContents" required th:text="${boardUpdate.boardContents}"></textarea>
+
+    <div class="btn-container">
+      <button type="submit" class="btn">수정 완료</button>
+      <a href="/list" class="btn btn-secondary">⬅ 목록으로</a>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

@@ -84,7 +84,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="board : ${boardDTOList}" th:onclick="goToDetail([[${board.id}]])">
+    <tr th:each="board : ${boardList}" th:onclick="goToDetail([[${board.id}]])">
       <td th:text="${board.boardTitle}">Title</td>
       <td th:text="${board.boardWriter}">Writer</td>
       <td th:text="${board.boardContents}">Contents</td>

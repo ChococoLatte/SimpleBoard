@@ -12,19 +12,33 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
-    private final BoardServiceImpl boardService;
+    private final BoardServiceImpl boardServiceImpl;
 
-   @GetMapping("/list/{id}")
-   public String detail(@PathVariable int id, Model model){
-       BoardDTO boardDTO = boardService.getById(id);
-       model.addAttribute("boardDTO", boardDTO);
-       return "detail";
-   }
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable int id, @ModelAttribute BoardDTO boardDTO, Model model){
+        model.addAttribute("id", id);
+        model.addAttribute("boardUpdate", boardDTO);
+        return "update";
+    }
+
+    @PutMapping("/update/{id}")
+    public String update(@PathVariable int id, @ModelAttribute BoardDTO boardDTO){
+        boardServiceImpl.updateById(id,boardDTO);
+        return "redirect:/list";
+    }
+
+    @GetMapping("/list/{id}")
+    public String detail(@PathVariable int id, Model model){
+        BoardDTO boardDetail = boardServiceImpl.getById(id);
+        model.addAttribute("id", id);
+        model.addAttribute("boardDetail", boardDetail);
+        return "detail";
+    }
 
     @GetMapping("/list")
     public String getAll(Model model){
-        List<BoardDTO> boardDTOList = boardService.getAll();
-        model.addAttribute("boardDTOList",boardDTOList);
+        List<BoardDTO> boardList = boardServiceImpl.getAll();
+        model.addAttribute("boardList",boardList);
         return "list";
     }
 
@@ -35,7 +49,7 @@ public class BoardController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO) {
-        boardService.save(boardDTO);
+        boardServiceImpl.save(boardDTO);
         return "save";
     }
 }

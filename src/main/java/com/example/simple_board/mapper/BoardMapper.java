@@ -19,4 +19,10 @@ public interface BoardMapper {
     List<BoardDTO> getAll();
 
     BoardDTO getById(int id);
+
+    void updateById(int id,
+                    @Param("boardTitle") String boardTitle,
+                    @Param("boardWriter") String boardWriter,
+                    @Param("boardContents") String boardContents
+        );
 }

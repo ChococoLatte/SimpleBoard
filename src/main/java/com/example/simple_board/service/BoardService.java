@@ -8,4 +8,5 @@ public interface BoardService {
     void save(BoardDTO boardDTO);
     List<BoardDTO> getAll();
     BoardDTO getById(int id);
+    void updateById(int id, BoardDTO boardDTO);
 }

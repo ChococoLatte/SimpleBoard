@@ -11,20 +11,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
 
-    private final BoardRepositoryImpl boardRepository;
+    private final BoardRepositoryImpl BoardRepositoryImpl;
 
     @Override
     public void save(BoardDTO boardDTO){
-        boardRepository.save(boardDTO);
+        BoardRepositoryImpl.save(boardDTO);
     }
 
     @Override
     public List<BoardDTO> getAll(){
-        return boardRepository.getAll();
+        return BoardRepositoryImpl.getAll();
     }
 
     @Override
     public BoardDTO getById(int id){
-        return boardRepository.getById(id);
+        return BoardRepositoryImpl.getById(id);
     }
+
+    @Override
+    public void updateById(int id, BoardDTO boardDTO){
+        BoardRepositoryImpl.updateById(id, boardDTO);
+    }
+
 }

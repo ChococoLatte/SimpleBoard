@@ -8,4 +8,5 @@ public interface BoardRepository {
     void save(BoardDTO boardDTO);
     List<BoardDTO> getAll();
     BoardDTO getById(int id);
+    void updateById(int id, BoardDTO boardDTO);
 }
